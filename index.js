@@ -1,7 +1,7 @@
 const express = require('express');
 const app = express();
 const bodyParser = require('body-parser');
-const mainRouter = ('./routes/routes');
+const mainRouter = ('./routes/routes.js');
 
 app.use(express.static('./'));
 app.use(bodyParser.urlencoded({extended: false}));
@@ -10,6 +10,7 @@ const mustacheExpress = require('mustache-express');
 app.engine('mustache', mustacheExpress());
 app.set('views', './views');
 app.set('view engine', 'mustache');
+app.use('/', mainRouter);
 
 const mongoose = require('mongoose');
 mongoose.Promise = require('bluebird');
@@ -29,5 +30,3 @@ const rocksSchema = new mongoose.Schema ({
 app.listen(3000, function () {
   console.log('Successfully started node application!')
 });
-
-app.use('/', mainRouter);
