@@ -1,0 +1,19 @@
+{
+  "name": "mongoose_collection",
+  "version": "1.0.0",
+  "description": "Take your Mongoose schema from today's activity. If you did not perform this activity, create a schema now based off of it.",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.17.2",
+    "express": "^4.15.3",
+    "express-session": "^1.15.3",
+    "mustache": "^2.3.0",
+    "mustache-express": "^1.2.5"
+  }
+}
