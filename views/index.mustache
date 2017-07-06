@@ -12,17 +12,62 @@
         <th>Shape</th>
         <th>Size</th>
         <th>Type</th>
-        <th>Location Found</th>
+        <th>Found Location</th>
         <th>Found Date</th>
+        <th>Id</th>
       </thead>
     </table>
     {{#rocks}}
     <tr>
-      <td>
-        {{.}}
-      </td>
+      <td>{{color}}</td>
+      <td>{{shape}}</td>
+      <td>{{sizeInMM}}</td>
+      <td>{{foundLocation: [{{city}}, {{state}}]}}</td>
+      <td>{{foundDate}}</td>
+      <td>{{_id}}</td>
     </tr>
     {{/rocks}}
+
+    <h2>Add a New Rock</h2>
+    <form action="/createRock" method=POST>
+      <input type="text" name="color" />
+      <label>Rock color</label>
+      <input type="text" name="shape" />
+      <label>Rock shape</label>
+      <input type="text" name="sizeInMM" />
+      <label>Rock size</label>
+      <input type="text" name="foundLocation.city" />
+      <label>City</label>
+      <input type="text" name="foundLocation.state" />
+      <label>State</label>
+      <input type="date" name="foundDate" />
+      <label>Date found</label>
+    </form>
+
+    <h2>Update a Rock</h2>
+    <form action="/updateRock/:id" method=PATCH>
+      <input type="number" name="id" />
+      <label>Rock ID</label>
+      <input type="text" name="color" />
+      <label>Rock color</label>
+      <input type="text" name="shape" />
+      <label>Rock shape</label>
+      <input type="text" name="sizeInMM" />
+      <label>Rock size</label>
+      <input type="text" name="foundLocation.city" />
+      <label>City</label>
+      <input type="text" name="foundLocation.state" />
+      <label>State</label>
+      <input type="date" name="foundDate" />
+      <label>Date found</label>
+    </form>
+
+    <h2>Delete a Rock from the Collection</h2>
+    <form action="/deleteRock" method=DELETE>
+      <input type="text" name="id" />
+      <label>Rock ID</label>
+    </form>
+
 
     <script src="../app.js"></script>
   </body>
