@@ -3,7 +3,7 @@ const app = express();
 const bodyParser = require('body-parser');
 const mainRouter = ('./routes/routes.js');
 
-app.use(express.static('./'));
+// app.use(express.static('./'));
 app.use(bodyParser.urlencoded({extended: false}));
 
 const mustacheExpress = require('mustache-express');
@@ -26,6 +26,8 @@ const rocksSchema = new mongoose.Schema ({
     state: String}],
   foundDate: {type: Date, required: true},
 });
+
+app.use('/', mainRouter);
 
 app.listen(3000, function () {
   console.log('Successfully started node application!')

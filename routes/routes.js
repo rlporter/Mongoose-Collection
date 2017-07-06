@@ -6,13 +6,14 @@ const rockCollection = mongoose.model('rockCollection', rocksSchema);
 
 //Display list of collected rocks//
 const getRock = function (req, res, next) {
-  const rockId = req.params.rockId;
+  // const rockId = req.params.rockId;
   const rock = rocks.get(rockId);
 };
 
-router.get('/', function(req, res) {
+router.get('/getRock', function(req, res) {
   req.findAll.rocks;
   res.render("index", rocks);
+  res.redirect('/');
 });
 
 //Add a new rock to the collection list
@@ -28,6 +29,7 @@ router.post('/createRock', function(req, res){
   });
 });
 module.exports = rockCollection;
+
 let rockID = mongoose.model('_id', rocksSchema);
 
 //Update a rock in the collection//
